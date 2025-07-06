@@ -47,13 +47,19 @@ function IssueForm() {
     try {
       const data = new FormData();
       Object.entries(formData).forEach(([key, value]) => data.append(key, value));
-      await axios.post(`${apiBase}/api/issues`, data, {
+      const response = await axios.post(`${apiBase}/api/issues`, data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
-      setSuccess('Your issue has been submitted to your MLA!');
-      setFormData({ area: '', title: '', description: '', name: '', contact: '', image: null });
-      setImagePreview(null);
+      console.log('Issue submitted:', response);
+      if (response.status === 201 || response.status === 200) {
+        setSuccess('Your issue has been submitted to your MLA!');
+        setFormData({ area: '', title: '', description: '', name: '', contact: '', image: null });
+        setImagePreview(null);
+      } else {
+        setError('Failed to submit. Please try again.');
+      }
     } catch (err) {
+      console.error('Submit error:', err);
       setError('Failed to submit. Please try again.');
     }
     setLoading(false);
