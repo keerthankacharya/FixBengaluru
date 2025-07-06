@@ -26,7 +26,7 @@ function IssueList() {
       setLoading(false);
     };
     fetchIssues();
-  }, []);
+  }, [apiBase]);
 
   const handleStatusChange = async (id, status) => {
     try {
