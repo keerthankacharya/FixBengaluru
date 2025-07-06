@@ -12,12 +12,13 @@ function IssueList() {
   const [filter, setFilter] = useState('All');
   const [loading, setLoading] = useState(true);
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
+  const apiBase = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchIssues = async () => {
       setLoading(true);
       try {
-        const res = await axios.get('http://localhost:5000/api/issues');
+        const res = await axios.get(`${apiBase}/api/issues`);
         setIssues(res.data);
       } catch (err) {
         setIssues([]);
@@ -29,7 +30,7 @@ function IssueList() {
 
   const handleStatusChange = async (id, status) => {
     try {
-      const res = await axios.patch(`http://localhost:5000/api/issues/${id}/status`, { status });
+      const res = await axios.patch(`${apiBase}/api/issues/${id}/status`, { status });
       setIssues(prev => prev.map(issue => issue._id === id ? { ...issue, status: res.data.status } : issue));
     } catch (err) {
       alert('Failed to update status');
@@ -57,7 +58,7 @@ function IssueList() {
               </div>
               <h3 className="issue-title">{issue.title}</h3>
               <p className="issue-desc">{issue.description}</p>
-              {issue.imageUrl && <img src={`http://localhost:5000/uploads/${issue.imageUrl}`} alt="Issue" className="issue-img" />}
+              {issue.imageUrl && <img src={`${apiBase}/uploads/${issue.imageUrl}`} alt="Issue" className="issue-img" />}
               <div className="issue-meta">
                 <span>By: {issue.name}</span>
                 <span>Contact: {issue.contact}</span>

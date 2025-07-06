@@ -20,6 +20,8 @@ function IssueForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const apiBase = process.env.REACT_APP_API_URL;
+
   const handleChange = e => {
     const { name, value, files } = e.target;
     if (files) {
@@ -45,7 +47,7 @@ function IssueForm() {
     try {
       const data = new FormData();
       Object.entries(formData).forEach(([key, value]) => data.append(key, value));
-      await axios.post('http://localhost:5000/api/issues', data, {
+      await axios.post(`${apiBase}/api/issues`, data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setSuccess('Your issue has been submitted to your MLA!');

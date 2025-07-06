@@ -9,10 +9,12 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const apiBase = process.env.REACT_APP_API_URL;
+
   const fetchIssues = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('http://localhost:5000/api/issues');
+      const res = await axios.get(`${apiBase}/api/issues`);
       setIssues(res.data);
       setError(null);
     } catch (err) {
@@ -31,7 +33,7 @@ const AdminDashboard = () => {
     if (!window.confirm('Are you sure you want to delete this issue?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/issues/${id}`);
+      await axios.delete(`${apiBase}/api/issues/${id}`);
       setIssues(prev => prev.filter(issue => issue._id !== id));
     } catch (err) {
       console.error('Failed to delete issue:', err);
@@ -92,9 +94,9 @@ const AdminDashboard = () => {
                   onMouseMove={e => setHoverText({ visible: true, x: e.clientX + 15, y: e.clientY + 15 })}
                 >
                   <img
-                    src={`http://localhost:5000/uploads/${issue.imageUrl}`}
+                    src={`${apiBase}/uploads/${issue.imageUrl}`}
                     alt="Issue"
-                    onClick={() => setSelectedImage(`http://localhost:5000/uploads/${issue.imageUrl}`)}
+                    onClick={() => setSelectedImage(`${apiBase}/uploads/${issue.imageUrl}`)}
                   />
                 </div>
               )}

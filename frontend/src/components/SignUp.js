@@ -13,6 +13,7 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const apiBase = process.env.REACT_APP_API_URL;
 
     const handleChange = (e) => {
         setFormData({
@@ -34,7 +35,7 @@ const SignUp = () => {
 
         try {
             console.log('Attempting to register with:', { name: formData.name, email: formData.email, role: 'admin' });
-            const response = await axios.post('http://localhost:5000/api/auth/register', {
+            const response = await axios.post(`${apiBase}/api/auth/register`, {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,

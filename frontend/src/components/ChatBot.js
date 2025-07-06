@@ -11,6 +11,7 @@ const ChatBot = () => {
     ]);
     const [inputValue, setInputValue] = useState('');
     const messagesEndRef = useRef(null);
+    const apiBase = process.env.REACT_APP_API_URL;
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
