@@ -8,7 +8,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://fixbengaluru.vercel.app'], // Allow both local and production URLs
+  origin: [
+    'http://localhost:3000',
+    'https://fixbengaluru.vercel.app',
+    'https://fix-bengaluru.vercel.app'
+  ],
   methods: ['GET', 'POST', 'DELETE', 'PATCH'],
   credentials: true
 }));
