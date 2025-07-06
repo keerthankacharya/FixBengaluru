@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB connection
-const MONGODB_URI = 'mongodb+srv://admin:admin123@cluster0.g02fjpt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 console.log('Attempting to connect to MongoDB...');
 mongoose.connect(MONGODB_URI, {
