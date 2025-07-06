@@ -1,0 +1,115 @@
+.issuelist-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(24,90,157,0.08);
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  color: var(--primary-text);
+}
+.list-heading {
+  color: var(--primary-text);
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  color: var(--primary-text);
+}
+.issue-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.2rem;
+  margin-top: 1.5rem;
+}
+.issue-card {
+  background: var(--secondary-bg);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 16px rgba(24,90,157,0.10);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 1.5px solid var(--border);
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.2s, border 0.2s;
+  color: var(--primary-text);
+}
+.issue-card:not(:last-child) {
+  /* Optional: add a divider between cards */
+  /* border-bottom: 2px solid var(--border); */
+}
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-text);
+}
+.issue-area {
+  background: var(--accent);
+  color: var(--primary-text);
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+}
+.status-badge {
+  background: var(--accent);
+  color: var(--primary-text);
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.status-resolved {
+  background: var(--success);
+  color: #fff;
+}
+.status-inprogress {
+  background: #1976d2;
+  color: #fff;
+}
+.issue-title {
+  font-size: 1.2rem;
+  color: var(--primary-text);
+  margin: 0.2rem 0;
+}
+.issue-desc {
+  color: var(--primary-text);
+  font-size: 1rem;
+}
+.issue-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  margin: 0.5rem 0;
+}
+.issue-meta {
+  font-size: 0.95rem;
+  color: var(--primary-text);
+  display: flex;
+  justify-content: space-between;
+}
+.status-control {
+  margin-top: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.status-control label {
+  color: var(--primary-text);
+  font-weight: 500;
+}
+.status-control select {
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--primary-text);
+  font-size: 1rem;
+} 

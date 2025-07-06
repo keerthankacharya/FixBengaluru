@@ -1,0 +1,49 @@
+.adminlogin-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: var(--card-bg);
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 24px rgba(24,90,157,0.08);
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  text-align: center;
+  color: var(--primary-text);
+}
+.adminlogin-form label {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: var(--primary-text);
+  font-weight: 500;
+  text-align: left;
+}
+.adminlogin-form input[type="email"],
+.adminlogin-form input[type="password"] {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--primary-text);
+}
+.adminlogin-form button {
+  background: var(--primary-text);
+  color: var(--accent);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.adminlogin-form button:disabled {
+  background: var(--border);
+  cursor: not-allowed;
+}
+.error-msg {
+  color: var(--error);
+  margin-top: 1rem;
+  text-align: center;
+} 
